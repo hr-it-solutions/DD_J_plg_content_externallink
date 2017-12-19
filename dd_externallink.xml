@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="content" method="upgrade">
+	<name>plg_content_dd_externallink</name>
+	<version>1.0.0.0</version>
+	<creationDate>05.12.2017</creationDate>
+	<author>Didldu e.K. Florian Häusler</author>
+	<authorEmail>info@hr-it-solutions.com</authorEmail>
+	<authorUrl>Didldu e.K. Florian Häusler https://www.hr-it-solutions.com</authorUrl>
+	<copyright>Copyright (C) 2011 - 2017 Didldu e.K. | HR IT-Solutions</copyright>
+	<license>GNU/GPLv2 only</license>
+	<description>PLG_CONTENT_DD_EXTERNALLINK_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="dd_externallink">dd_externallink.php</filename>
+	</files>
+	<languages>
+		<language tag="de-DE">language/de-DE/de-DE.plg_content_dd_externallink.sys.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.plg_content_dd_externallink.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_dd_externallink.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_dd_externallink.ini</language>
+	</languages>
+	<updateservers>
+		<server type="collection" priority="1" name="HR IT-Solutions Updates">http://www.hr-it-solutions.com/jextensions/update.xml</server>
+	</updateservers>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+				<field name="mode" type="list" default="" required="true" label="PLG_CONTENT_DD_EXTERNALLINK_MODE_LABEL" description="PLG_CONTENT_DD_EXTERNALLINK_MODE_DESC">
+					<option value="">Please Select a option</option>
+					<option value="1">Target _blank</option>
+					<option value="2">DD PushUpBox</option>
+				</field>
+
+				<field
+						name="targetunset"
+						type="radio"
+						default="0"
+						label="PLG_CONTENT_DD_EXTERNALLINK_TARGETUNSET_LABEL"
+						description="PLG_CONTENT_DD_EXTERNALLINK_TARGETUNSET_DESC"
+						class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>
