@@ -3,7 +3,7 @@
  * @package    DD_External_Link
  *
  * @author     HR IT-Solutions Florian Häusler <info@hr-it-solutions.com>
- * @copyright  Copyright (C) 2017 - 2017 Didldu e.K. | HR IT-Solutions
+ * @copyright  Copyright (C) 2017 - 2018 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
  **/
 
@@ -18,6 +18,8 @@ use Joomla\String\StringHelper;
  */
 class PlgContentDD_ExternalLink extends JPlugin
 {
+	protected $app;
+
 	protected $mode;
 
 	protected $autoloadLanguage = true;
@@ -35,6 +37,11 @@ class PlgContentDD_ExternalLink extends JPlugin
 	 */
 	public function onContentPrepare($context, &$row, &$params, $page = 0)
 	{
+		if ($this->app->isClient('administrator'))
+		{
+			return true;
+		}
+
 		if ($context == 'com_content.article')
 		{
 			// Get plugin parameter
@@ -42,7 +49,7 @@ class PlgContentDD_ExternalLink extends JPlugin
 
 			$LinkDisclaimerText = JText::_('PLG_CONTENT_DD_EXTERNALLINK_DD_PUSHUPBOX_NOTE');
 
-			preg_match_all('/<[a].*href="([^"]*)".*<\/[a]>/', $row->text, $matches, PREG_SET_ORDER);
+			preg_match_all('/<a\s*href="([^"]+)"[^>]+>/', $row->text, $matches, PREG_SET_ORDER);
 
 			// Unset all target
 			if ((int) $this->params->get('targetunset'))
@@ -80,7 +87,7 @@ class PlgContentDD_ExternalLink extends JPlugin
 					{
 						$PushUpContent = "<div class=\'pub_backlink\'>";
 						$PushUpContent .= "<p class=\'disclaimer\'>" . $LinkDisclaimerText . "</p>";
-						$PushUpContent .= "<p><a class=\'btn btn-primary\' href=\'" . $matche . "\' target=\'_blank\'>" .
+						$PushUpContent .= "<p><a class=\'btn btn-primary\' href=\'" . $matche . "\' target=\'_blank\' rel=\'noopener noreferrer\'>" .
 							JText::_('PLG_CONTENT_DD_EXTERNALLINK_DD_PUSHUPBOX_LINKTEXT') . "</a></p>";
 						$PushUpContent .= "<p><small>Link: " . $matche . "</small></p>";
 						$PushUpContent .= "</div>";
