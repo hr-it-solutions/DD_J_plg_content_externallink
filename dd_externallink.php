@@ -87,7 +87,7 @@ class PlgContentDD_ExternalLink extends JPlugin
 					{
 						$PushUpContent = "<div class=\'pub_backlink\'>";
 						$PushUpContent .= "<p class=\'disclaimer\'>" . $LinkDisclaimerText . "</p>";
-						$PushUpContent .= "<p><a class=\'btn btn-primary\' href=\'" . $matche . "\' target=\'_blank\'>" .
+						$PushUpContent .= "<p><a class=\'btn btn-primary\' href=\'" . $matche . "\' target=\'_blank\' rel=\'noopener noreferrer\'>" .
 							JText::_('PLG_CONTENT_DD_EXTERNALLINK_DD_PUSHUPBOX_LINKTEXT') . "</a></p>";
 						$PushUpContent .= "<p><small>Link: " . $matche . "</small></p>";
 						$PushUpContent .= "</div>";
