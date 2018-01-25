@@ -1,5 +1,5 @@
 # DD_J_plg_content_externallink
-A Joomla! content plugin to detect and prozess external links
+A Joomla! content plugin to detect and process external links
 
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=102)](https://opensource.org/licenses/GPL-2.0/)
 
