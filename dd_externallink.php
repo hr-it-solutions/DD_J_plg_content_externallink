@@ -49,7 +49,7 @@ class PlgContentDD_ExternalLink extends JPlugin
 
 			$LinkDisclaimerText = JText::_('PLG_CONTENT_DD_EXTERNALLINK_DD_PUSHUPBOX_NOTE');
 
-			preg_match_all('/<a[^>]+href="([^"]+)"[^>]+>/', $row->text, $matches, PREG_SET_ORDER);
+			preg_match_all('/<a.*? href=[\"|\'](.*?)[\"|\'].*?>/', $row->text, $matches, PREG_SET_ORDER);
 
 			// Unset all target
 			if ((int) $this->params->get('targetunset'))
